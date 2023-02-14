@@ -21,10 +21,18 @@ public class Movement : MonoBehaviour
         if (inverse)
         {
             gameObject.transform.position = Vector3.MoveTowards(transform.position, position1.position, Time.deltaTime);
+            if (Vector3.Distance(transform.position, position1.position) < 0.4)
+            {
+                inverse = true;
+            }
         }
         else
         {
             gameObject.transform.position = Vector3.MoveTowards(transform.position, position2.position, Time.deltaTime);
+            if (Vector3.Distance(transform.position, position2.position) < 0.4)
+            {
+                inverse = false;
+            }
         }
         
     }
